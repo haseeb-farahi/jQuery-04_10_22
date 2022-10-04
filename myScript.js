@@ -34,3 +34,25 @@ $(document).on('submit','#saveStudent', function (e) {
     });
     
 });
+
+
+$(document).on('click', 'infoStudentBtn', function(){
+    $('#infoStudentModal').modal('show');
+    // formData= new FormData(this)
+    // formData.append('student_id', true)
+    var student_id =($this).val();
+    $.ajax({
+        type: "GET",
+        url: "code.php?student_id=" +student_id,
+        success: function (response) {
+            var res = $.parseJSON(response)
+            if(res.status == 2000){
+                alert('student selected');
+                $('#infoStudentModal').modal('show')
+                $('#theStname').html
+            }
+            
+        }
+    });
+
+});
